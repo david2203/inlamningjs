@@ -1,0 +1,44 @@
+#section2 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 30px;
+    justify-content: space-around;
+  }
+  
+  #il {
+    color: green;
+  }
+  
+  #el {
+    color: red;
+  }
+  
+  #flex3 {
+    display: flex;
+    justify-content: space-around;
+    width: 40vw;
+    border: 2px solid blue;
+    background-color: lightblue;
+  }
+  
+  #moneyleft {
+    font-size: 4vw;
+    color: blue;
+    margin-bottom: 2vw;
+  }
+  
+  #exlist {
+            justify-content: flex-end;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    body {
+      font-size: 3vw;
+    }
+    #flex3 {
+      width: 50vw;
+    }
+  }
+
+  
