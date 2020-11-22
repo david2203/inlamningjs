@@ -1,15 +1,21 @@
+
+// göra en lista så att man senare kan pusha in content som skapas av funktionen
+
 var money = []
 
+// main funktionen som ska låta användare skapa en ekonomisk överblick
 
 var calculateValue = function () {
 
-    
-    var number = Number(document.querySelector("#input").value);
+    // conecta olika variabler med html filer/ eller säga att dom ska skapa fil i html
 
+    var number = Number(document.querySelector("#input").value);
     var description = document.querySelector("#description").value;
     var selectedMathematicalSymbol = document.querySelector("#selection").value;
     var curency = document.querySelector("#selection2").value;
     
+
+    // vilkor sats som bestämmer vart element ska skapas/lagras beroende på vilken selector en användare väljer
     if (selectedMathematicalSymbol === "+") {
 
         var lincome = document.querySelector("#lincome")
@@ -18,7 +24,8 @@ var calculateValue = function () {
         var addToIncome = document.createElement("p")
         addToIncome.innerHTML = description + ": " + number + curency 
         document.querySelector("#incomelist").appendChild(addToIncome)
-        
+      
+        // vilkor sats som converterar valuta beroende på vad användaren har valt till kronor
         if (curency == "$" ) {
             var convert = number * 8.62;
         }
@@ -30,10 +37,11 @@ var calculateValue = function () {
             var convert = number;
         }
     
-        
+        // pusha info till skapade listan och ignorera alla tal efter komma
         money.push(Number(  Math.trunc(convert)   )    )
-        console.log(money)
+        
     }
+    
     
     else  {
 
@@ -68,6 +76,9 @@ var calculateValue = function () {
     //     return(total+num)
     // }
     
+
+    // en loop som loopar igenom den skapade listan och visar hur mycket pengar man har kvar att spendera eller man måste återbetala
+
     var summa = 0;
     for (var i=0; i<money.length; i++) {
         summa += money[i];
@@ -84,7 +95,7 @@ var calculateValue = function () {
      }
 
 }
-
+// en försäkring att användaren måste skriva in ett värde som ska inbetalas //notis om vad som måste göras
 var checkInputValueNumber = function () {
  
     
@@ -99,6 +110,8 @@ var checkInputValueNumber = function () {
     }
 }
 
+// en försäkring att användaren måste skriva in en beskrivning av inbetalningen //notis om vad som måste göras
+
 var checkInputValueDescription = function () {
     
     var description = document.querySelector("#description").value;
@@ -112,11 +125,12 @@ var checkInputValueDescription = function () {
     }
 }
 
-
+//en funktion som ska resetta listorna /sidan
 var clear = function () {
     location.reload();
 }
 
+// 2 olika buttons som är connectade med clear och add functionerna
 var btn = document.querySelector("#add")
 btn.addEventListener("click", checkInputValueNumber)
 
